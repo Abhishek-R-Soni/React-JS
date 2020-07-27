@@ -18,13 +18,8 @@ class Service extends React.Component{
 class Car extends React.Component{
 
   // initialization state
-  constructor(){
+  constructor(props){
     super();
-    this.state = {
-      name: 'Car',
-      model: 'Tesla',
-      price: 12000
-    }
   }
 
   // render table
@@ -40,9 +35,9 @@ class Car extends React.Component{
           </tr>
 
           <tr>
-            <td>{this.state.name}</td>
-            <td>{this.state.model}</td>
-            <td>{this.state.price}</td>
+            <td>{this.props.name}</td>
+            <td>{this.props.model}</td>
+            <td>{this.props.price}</td>
           </tr>
           
         </table>
@@ -53,7 +48,15 @@ class Car extends React.Component{
   }
 }
 
-ReactDOM.render(<Car />, document.querySelector('#root'));
+const root = (
+  <div>
+    <Car name="Hyundai" model="i10" price="9,99,999" />
+    <Car name="Tata" model="i10" price="12,99,999" />
+    <Car name="Maruti" model="Alto" price="10,000,00" />
+  </div>
+)
+
+ReactDOM.render(root, document.querySelector('#root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
